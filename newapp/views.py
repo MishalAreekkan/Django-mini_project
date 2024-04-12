@@ -45,9 +45,12 @@ def home(request):
         t = request.POST.get("teac")
         home_obj = unversity(name=n,place=p,department=d,teachers=t)
         home_obj.save()
-        print(n,p,d,t)
+    # print(unversity.objects.get(place="tn"))
     return render(request,"home.html")
 
+def univ(request):
+    datas = unversity.objects.all()
+    return render(request,"univ.html",{"univ":datas})
 
 
 # def display(request):

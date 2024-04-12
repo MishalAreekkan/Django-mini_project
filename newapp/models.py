@@ -13,7 +13,7 @@ class unversity(models.Model):
     teachers = models.CharField(max_length=50)
     
     # def __str__(self):
-    #     return self.name
+    #     return f"{self.teachers}--{self.name}--{self.place}"
     
 class Userprofile(models.Model):
     username = models.CharField(max_length=150)
