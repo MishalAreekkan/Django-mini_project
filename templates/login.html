@@ -9,7 +9,7 @@
 <body>
     <div>
         <h1>Login Page</h1>
-        <form action="{% url "login" %}" method="post">
+        <form action="{% url "login" %}" method="POST">
             {% csrf_token %}
             <label>USER NAME</label><br>
             <input type="text" placeholder="USER NAME" name="l_username"><br>

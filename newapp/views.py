@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
-from .models import Userprofile
+from .models import Userprofile,user_login
 # Create your views here.
 
 def signin(request):
@@ -26,16 +26,23 @@ def login(request):
     if request.method == "POST":
         l_user = request.POST.get("l_username")
         l_pass = request.POST.get("l_pass")
-        print(l_user,l_pass)
+        # print(l_user,l_pass)
+        login_obj = user_login(names = l_user,passwords = l_pass)
+        login_obj.save()
         return redirect('home')
     return render(request,"login.html")
 
+def listed(request):
+    data = user_login.objects.all()
+    return render(request,"listed.html",{"user":data})
+
 @login_required(login_url='login')
 def home(request):
+    
     return render(request,"home.html")
 
 
 
-def display(request):
-    data = Userprofile.objects.get(username ="harry")
-    print("username",data.username)
+# def display(request):
+#     data = Userprofile.objects.get(username ="harry")
+#     print("username",data.username)

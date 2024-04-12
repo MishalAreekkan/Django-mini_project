@@ -6,8 +6,23 @@
     <title>Document</title>
 </head>
 <body>
-    <h1> HOME PAGE </h1>
-    <a href="{% url "signin" %}"><button style="color: blue;">Login</button></a>
+    <div style="text-align: center;"> 
+        <h1> HOME PAGE </h1>
+        
+        <form action="{% url "home" %}" method="POST">
+            {% csrf_token %}
+            <label >NAME</label>
+            <input type="text" placeholder="NAME"><br>
+            <label >PLACE</label>
+            <input type="text" placeholder="PLACE"><br>
+            <label >DEPARTMENT</label>
+            <input type="text" placeholder="DEPARTMENT"><br>
+            <label >TEACHERS</label>
+            <input type="text" placeholder="TEACHERS">
+            <button type="submit" style="color: blue;">ADD</button>
+        </form>
+    </div>
+    {% comment %} <a href="{% url "signin" %}"><button style="color: blue;">Login</button></a> {% endcomment %}
 
 </body>
 </html>
