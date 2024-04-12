@@ -9,11 +9,11 @@ class user_login(models.Model):
 class unversity(models.Model):
     name = models.CharField(max_length=250)
     place = models.CharField(max_length=250)
-    department = models.IntegerField()
-    teachers = models.IntegerField()
+    department = models.CharField(max_length=50)
+    teachers = models.CharField(max_length=50)
     
-    def __str__(self):
-        return self.name
+    # def __str__(self):
+    #     return self.name
     
 class Userprofile(models.Model):
     username = models.CharField(max_length=150)

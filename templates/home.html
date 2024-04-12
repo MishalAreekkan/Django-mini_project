@@ -8,21 +8,20 @@
 <body>
     <div style="text-align: center;"> 
         <h1> HOME PAGE </h1>
-        
         <form action="{% url "home" %}" method="POST">
             {% csrf_token %}
             <label >NAME</label>
-            <input type="text" placeholder="NAME"><br>
+            <input type="text" placeholder="NAME" name="name"><br>
             <label >PLACE</label>
-            <input type="text" placeholder="PLACE"><br>
+            <input type="text" placeholder="PLACE" name="place" ><br>
             <label >DEPARTMENT</label>
-            <input type="text" placeholder="DEPARTMENT"><br>
+            <input type="text" placeholder="DEPARTMENT" name="dept"><br>
             <label >TEACHERS</label>
-            <input type="text" placeholder="TEACHERS">
+            <input type="text" placeholder="TEACHERS" name="teac">
             <button type="submit" style="color: blue;">ADD</button>
+            <a href="{% url "signin" %}" style="text-decoration: none;color:blue">BACK</a>
         </form>
     </div>
-    {% comment %} <a href="{% url "signin" %}"><button style="color: blue;">Login</button></a> {% endcomment %}
 
 </body>
 </html>

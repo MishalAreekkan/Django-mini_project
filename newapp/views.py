@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
-from .models import Userprofile,user_login
+from .models import Userprofile,user_login,unversity
 # Create your views here.
 
 def signin(request):
@@ -38,7 +38,14 @@ def listed(request):
 
 @login_required(login_url='login')
 def home(request):
-    
+    if request.method == "POST":
+        n = request.POST.get("name")
+        p = request.POST.get("place")
+        d = request.POST.get("dept")
+        t = request.POST.get("teac")
+        home_obj = unversity(name=n,place=p,department=d,teachers=t)
+        home_obj.save()
+        print(n,p,d,t)
     return render(request,"home.html")
 
 
