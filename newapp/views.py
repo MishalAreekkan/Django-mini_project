@@ -52,6 +52,11 @@ def univ(request):
     datas = unversity.objects.all()
     return render(request,"univ.html",{"univ":datas})
 
+def delete(request,id):
+    deleted_one = unversity.objects.get(id=id)
+    deleted_one.delete()
+    return redirect("univ.html")
+
 
 # def display(request):
 #     data = Userprofile.objects.get(username ="harry")

@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Universities</title>
 </head>
+
 <body>
     <div>
         <h1>LISTS OF UNIVERSITIES</h1>
@@ -21,9 +23,14 @@
                 <td>{{x.place}}</td>
                 <td>{{x.department}}</td>
                 <td>{{x.teachers}}</td>
-                {% endfor %}
-              </tr>
+                <form action="{% url "delete" x.id %}">
+                    {% csrf_token %}
+                    <td><button type="submit">DELETE</button></td>
+                </form>
+            </tr>
+            {% endfor %}
         </table>
     </div>
 </body>
+
 </html>
